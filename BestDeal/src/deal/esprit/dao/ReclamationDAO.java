@@ -21,11 +21,12 @@ import java.util.List;
 public class ReclamationDAO {
     //insert reclamation
     public void addReclamation(Reclamation r){
-        String requete = "insert into reclamation(type,date) values (?,?)";
+        String requete = "insert into reclamation(type,date,description) values (?,?,?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setString(1,r.getTypeReclamation() );
             ps.setString(2,r.getDateReclamation());
+            ps.setString(3,r.getDescriptionReclamation());
          
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
@@ -36,11 +37,12 @@ public class ReclamationDAO {
     }
     //modififcation selon id
      public void updateReclamation(Reclamation r){
-        String requete = "update reclamation set type=?, date=? where id=1";
+        String requete = "update reclamation set type=?, date=? ,description=? where id=1";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setString(1,r.getTypeReclamation() );
             ps.setString(2,r.getDateReclamation());
+            ps.setString(3,r.getDescriptionReclamation());
        
             ps.executeUpdate();
             System.out.println("Mise à jour effectuée avec succès");
@@ -82,6 +84,7 @@ public class ReclamationDAO {
                 reclamation.setIdReclamation(resultat.getInt(1));
                 reclamation.setTypeReclamation(resultat.getString(2));
                 reclamation.setDateReclamation(resultat.getString(3));
+                reclamation.setDescriptionReclamation(resultat.getString(4));
                 
                 listereclamations.add(reclamation);
             }

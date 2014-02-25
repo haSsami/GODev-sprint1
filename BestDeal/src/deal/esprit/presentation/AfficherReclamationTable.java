@@ -14,7 +14,7 @@ import javax.swing.table.AbstractTableModel;
  */
 public class AfficherReclamationTable extends AbstractTableModel{
     List <Reclamation> reclamations ;
-    String columTab [] ={"Id","Type","Date"};
+    String columTab [] ={"Id","Type","Date","Description"};
     
     public AfficherReclamationTable(){
         ReclamationDAO reclamationDAO = new ReclamationDAO();
@@ -43,6 +43,8 @@ public class AfficherReclamationTable extends AbstractTableModel{
                return  reclamations.get(rowIndex).getTypeReclamation();
             case 2 :
                return  reclamations.get(rowIndex).getDateReclamation();
+            case 3 :
+               return  reclamations.get(rowIndex).getDescriptionReclamation();
            
             default:
                 return null;
