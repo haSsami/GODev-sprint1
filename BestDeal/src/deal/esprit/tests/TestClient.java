@@ -11,7 +11,7 @@ import deal.esprit.entities.Client;
  *
  * @author Ssawssen
  */
-public class BestDeal {
+public class TestClient {
 
     /**
      * @param args the command line arguments
@@ -29,7 +29,7 @@ public class BestDeal {
 //        client.setAdresseClient("ghazela");
 //        client.setPseudoClient("sam_41");
 //        client.setMdpClient("esprit");
-//        clientDAO.insertClient(client);
+//        clientDAO.addClient(client);
 //        
 //        client.setAdresseClient("marsa");
 //        clientDAO.updateClient(client);

@@ -225,7 +225,7 @@ public class CreerClient extends javax.swing.JFrame {
         c.setPseudoClient(pseudo_client);
         c.setMdpClient(mdp_client);
         
-        clientDAO.insertClient(c);
+        clientDAO.addClient(c);
         } else{
             
             JOptionPane.showMessageDialog(this, "Veuillez confirmer votre mot de passe ou votre email ", "Pas de confirmation", JOptionPane.WARNING_MESSAGE);

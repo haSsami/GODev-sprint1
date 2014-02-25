@@ -20,7 +20,7 @@ import java.util.List;
 public class ClientDAO {
     
     //ajout client
-    public void insertClient(Client c){
+    public void addClient(Client c){
         String requete = "insert into client (nom,prenom,email,tel,datedenaissance,sexe,adresse,pseudo,mdp) values (?,?,?,?,?,?,?,?,?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
