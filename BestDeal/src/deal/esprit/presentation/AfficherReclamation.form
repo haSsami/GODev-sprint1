@@ -170,6 +170,9 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Supprimer"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_supprimerActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="btn_repondre">
       <Properties>
@@ -215,7 +218,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Comic Sans MS" size="18" style="2"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Deconnexion"/>
+        <Property name="text" type="java.lang.String" value="Deconnexion :"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JToggleButton" name="btn_off">

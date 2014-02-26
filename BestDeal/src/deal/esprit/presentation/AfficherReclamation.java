@@ -4,10 +4,14 @@
  */
 package deal.esprit.presentation;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
+import deal.esprit.dao.ReclamationDAO;
+import deal.esprit.entities.Reclamation;
+import deal.esprit.util.MyConnection;
+import java.util.List;
+import java.sql.*;
+import net.proteanit.sql.DbUtils;
 import javax.swing.JOptionPane;
-import javax.swing.ListSelectionModel;
+
 
 /**
  *
@@ -15,7 +19,12 @@ import javax.swing.ListSelectionModel;
  */
 public class AfficherReclamation extends javax.swing.JFrame {
 
+    RepondreReclamation repondreReclamation = new RepondreReclamation();
+    Reclamation reclamation = new Reclamation();
+    ReclamationDAO reclamationDAO = new ReclamationDAO();
+    List <Reclamation> reclamations ;
     /**
+     * 
      * Creates new form AfficherReclamation
      */
     public AfficherReclamation() {
@@ -74,6 +83,11 @@ public class AfficherReclamation extends javax.swing.JFrame {
 
         btn_supprimer.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         btn_supprimer.setText("Supprimer");
+        btn_supprimer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_supprimerActionPerformed(evt);
+            }
+        });
 
         btn_repondre.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         btn_repondre.setText("Répondre");
@@ -99,7 +113,7 @@ public class AfficherReclamation extends javax.swing.JFrame {
         btn_on.setText("On");
 
         jLabel2.setFont(new java.awt.Font("Comic Sans MS", 2, 18)); // NOI18N
-        jLabel2.setText("Deconnexion");
+        jLabel2.setText("Deconnexion :");
 
         btn_off.setFont(new java.awt.Font("Comic Sans MS", 0, 11)); // NOI18N
         btn_off.setText("Off");
@@ -193,8 +207,18 @@ public class AfficherReclamation extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btn_repondreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_repondreActionPerformed
-      RepondreReclamation repondreReclamation = new RepondreReclamation();
+      String table_click=new String();
+        try {
+            int row = table_reclamation.getSelectedRow();
+            table_click =(table_reclamation.getModel().getValueAt(row, 3).toString());
+            
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+      repondreReclamation.getLblDescription().setText(table_click); //set title
       repondreReclamation.setVisible(true);
+      
 //      jTable1.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 //      jTable1.setColumnSelectionAllowed(true);
 //      jTable1.setRowSelectionAllowed(true);
@@ -207,15 +231,35 @@ public class AfficherReclamation extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void table_reclamationMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_table_reclamationMouseClicked
+        
+    }//GEN-LAST:event_table_reclamationMouseClicked
+
+    private void updateTable(){
         try {
-            int row = table_reclamation.getSelectedRow();
-            String table_click =(table_reclamation.getModel().getValueAt(row, 0).toString());
-            
-            
+            String requete ="select * from reclamation";
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+           ResultSet resultat = ps.executeQuery(requete);
+           table_reclamation.setModel(DbUtils.resultSetToTableModel(resultat));
         } catch (Exception e) {
+        }
+    }
+    private void btn_supprimerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_supprimerActionPerformed
+        try{
+        String table_click=new String();
+        int row ;
+
+        row = table_reclamation.getSelectedRow();
+        table_click =(table_reclamation.getModel().getValueAt(row, 0).toString());
+             
+        int click =Integer.parseInt(table_click);
+        System.out.println(click);
+        reclamationDAO.deleteReclamation(click);}
+        catch (Exception e) {
             JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_table_reclamationMouseClicked
+      updateTable();
+        
+    }//GEN-LAST:event_btn_supprimerActionPerformed
 
     /**
      * @param args the command line arguments

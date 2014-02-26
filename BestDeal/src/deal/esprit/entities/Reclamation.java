@@ -12,6 +12,7 @@ public class Reclamation {
     private int id_reclamation;
     private String type_reclamation;
     private String date_reclamation;
+    private String description_reclamation;
     
     public Reclamation(){
         
@@ -33,5 +34,11 @@ public class Reclamation {
     }
     public void setDateReclamation(String date_reclamation){
         this.date_reclamation=date_reclamation;
+    }
+    public String getDescriptionReclamation(){
+        return description_reclamation;
+    }
+    public void setDescriptionReclamation(String description_reclamation){
+        this.description_reclamation=description_reclamation;
     }
 }

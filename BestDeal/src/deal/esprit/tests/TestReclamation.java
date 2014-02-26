@@ -17,8 +17,13 @@ public class TestReclamation {
         Reclamation reclamation = new Reclamation();
         ReclamationDAO reclamationDAO = new ReclamationDAO();
         
-        reclamation.setTypeReclamation("probleme dans la rubrique notification");
+        reclamation.setTypeReclamation("deal perimé");
         reclamation.setDateReclamation("15/12/12");
+        reclamation.setDescriptionReclamation("BLABLABLABLABLABLABBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBZZHUZUZUZUHDDDzkhbhdhduuuuzuuzuzyyzyyzyzyettetetgdgdgdgsbsbsbsbbsbsq");
+        
+    
+        
+     
         
         reclamationDAO.addReclamation(reclamation);
         
