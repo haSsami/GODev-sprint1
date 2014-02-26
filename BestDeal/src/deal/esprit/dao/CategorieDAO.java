@@ -94,11 +94,11 @@ public class CategorieDAO {
             }
             return listecategories;
         } catch (SQLException ex) {
-            System.out.println("erreur lors du chargement des clients "+ex.getMessage());
+            System.out.println("erreur lors du chargement des categories "+ex.getMessage());
             return null;
         }
     }
-    
+//
 }
     
 
