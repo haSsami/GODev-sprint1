@@ -12,14 +12,14 @@ package deal.esprit.entities;
  * @author wassim
  */
 public class Produit {
-   private String id_produit;
+   private int id_produit;
    public String nom_produit;
    public Object logo;
    public double prix_primaire;
    public int qte_stock;
    public Categorie Categorie;
 
-    public Produit(String id_produit, String nom_produit, Object logo, double prix_primaire, int qte_stock, Categorie Categorie) {
+    public Produit(int id_produit, String nom_produit, Object logo, double prix_primaire, int qte_stock, Categorie Categorie) {
         this.id_produit = id_produit;
         this.nom_produit = nom_produit;
         this.logo = logo;
@@ -27,7 +27,7 @@ public class Produit {
         this.qte_stock = qte_stock;
         this.Categorie = Categorie;
     }
-    public void setId_produit(String id_produit) {
+    public void setId_produit(int id_produit) {
         this.id_produit = id_produit;
     }
 
@@ -47,7 +47,7 @@ public class Produit {
         this.qte_stock = qte_stock;
     }
 
-    public String getId_produit() {
+    public int getId_produit() {
         return id_produit;
     }
 
