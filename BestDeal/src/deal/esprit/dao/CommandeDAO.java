@@ -61,5 +61,43 @@ public class CommandeDAO {
         }
 
     }
-  
+//suppresion Commande
+        public void deleteCommande(int id){
+
+          String requete = "delete from commande where id_commande=?";
+        try {
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            System.out.println("Suppression effectuée avec succès");
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la suppression "+ex.getMessage());
+        }
+    }  
+//affihage Commande       
+          public List<Commande> DisplayAllCommandes (){
+
+
+        List<Commande> listecommandes = new ArrayList<>();
+
+        String requete = "select * from commande";
+        try {
+           Statement statement = MyConnection.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+
+            while(resultat.next()){
+                Commande commande=new Commande();
+                commande.setId_commande(resultat.getInt(1));
+                commande.client.setIdClient(resultat.getInt(2));
+                commande.setQte(resultat.getInt(3));
+                         
+                listecommandes.add(commande);
+            }
+            return listecommandes;
+        } catch (SQLException ex) {
+            System.out.println("erreur lors du chargement des categories "+ex.getMessage());
+            return null;
+        }
+    }
 }

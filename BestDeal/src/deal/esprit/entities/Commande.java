@@ -16,6 +16,9 @@ public class Commande {
   public Client client;
   public int qte;
 
+    public Commande() {
+    }
+
     public Commande(int id_commande, Produit produit, Client client, int qte) {
         this.id_commande = id_commande;
         this.produit = produit;
