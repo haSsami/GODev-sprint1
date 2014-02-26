@@ -15,38 +15,33 @@ import java.util.List;
 public class Panier {
 
     
-    private String id_panier;
-    public int nombre_point_fidelite;
+    private int id_panier;
     public List Commande;
-    
-    public Panier(String id_panier, int nombre_point_fidelite, List Commande) {
+
+    public Panier() {
+    }
+
+    public Panier(int id_panier, List Commande) {
         this.id_panier = id_panier;
-        this.nombre_point_fidelite = nombre_point_fidelite;
         this.Commande = Commande;
     }
 
-    public void setId_panier(String id_panier) {
-        this.id_panier = id_panier;
-    }
-
-    public void setNombre_point_fidelite(int nombre_point_fidelite) {
-        this.nombre_point_fidelite = nombre_point_fidelite;
-    }
-
-    public void setCommande(List Commande) {
-        this.Commande = Commande;
-    }
-
-    public String getId_panier() {
+    public int getId_panier() {
         return id_panier;
     }
 
-    public int getNombre_point_fidelite() {
-        return nombre_point_fidelite;
+    public void setId_panier(int id_panier) {
+        this.id_panier = id_panier;
     }
 
     public List getCommande() {
         return Commande;
     }
+
+    public void setCommande(List Commande) {
+        this.Commande = Commande;
+    }
+    
+    
     
 }
