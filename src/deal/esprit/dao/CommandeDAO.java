@@ -10,6 +10,7 @@ package deal.esprit.dao;
  *
  * @author wassim
  */
+import deal.esprit.entities.Client;
 import deal.esprit.entities.Commande;
 import deal.esprit.util.MyConnection;
 import java.sql.Date;
@@ -92,7 +93,31 @@ public class CommandeDAO {
                 commande.setId_commande(resultat.getInt(1));
                 commande.client.setIdClient(resultat.getInt(2));
                 commande.setQte(resultat.getInt(3));
-                         
+                       
+                listecommandes.add(commande);
+            }
+            return listecommandes;
+        } catch (SQLException ex) {
+            System.out.println("erreur lors du chargement des categories "+ex.getMessage());
+            return null;
+        }
+    }
+           public List<Commande> DisplayCommandesClient (Client c){
+
+
+        List<Commande> listecommandes = new ArrayList<>();
+
+        String requete = "select * from commande where id_client="+c.getIdClient()+" ;";
+        try {
+           Statement statement = MyConnection.getInstance()
+                   .createStatement();
+            ResultSet resultat = statement.executeQuery(requete);
+            while(resultat.next()){
+                Commande commande=new Commande();
+                commande.setId_commande(resultat.getInt(1));
+                commande.client.setIdClient(resultat.getInt(2));
+                commande.setQte(resultat.getInt(3));
+                       
                 listecommandes.add(commande);
             }
             return listecommandes;

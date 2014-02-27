@@ -23,7 +23,7 @@ import java.util.List;
 public class CategorieDAO {
  //Ajout categorie
      public void addCategorie(Categorie cat){
-        String requete = "insert into categorie (nom) values (?,?,?,?,?,?,?,?,?)";
+        String requete = "insert into categorie (nom) values (?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setString(1, cat.nom_categorie);
