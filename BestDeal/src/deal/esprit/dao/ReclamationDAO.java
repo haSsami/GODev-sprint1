@@ -4,7 +4,6 @@
  */
 package deal.esprit.dao;
 
-import deal.esprit.entities.Client;
 import deal.esprit.entities.Reclamation;
 import deal.esprit.util.MyConnection;
 import java.sql.PreparedStatement;

@@ -10,7 +10,6 @@ package deal.esprit.dao;
  *
  * @author wassim
  */
-import deal.esprit.entities.Categorie;
 import deal.esprit.entities.Commande;
 import deal.esprit.util.MyConnection;
 import java.sql.PreparedStatement;
