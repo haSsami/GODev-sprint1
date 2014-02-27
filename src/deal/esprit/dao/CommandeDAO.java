@@ -12,6 +12,7 @@ package deal.esprit.dao;
  */
 import deal.esprit.entities.Commande;
 import deal.esprit.util.MyConnection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,12 +23,13 @@ import java.util.List;
 public class CommandeDAO {
     public void insertCommande(Commande c)
     {
-     String requete = "insert into commande (id_produit,id_client,qte) values (?,?,?)";
+     String requete = "insert into commande (id_produit,id_client,qte,date_res) values (?,?,?,?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
             ps.setInt(1, c.produit.getId_Produit());
             ps.setInt(2, c.client.getIdClient());
-            ps.setInt(3, c.qte);          
+            ps.setInt(3, c.qte); 
+            ps.setDate(4, (Date) c.date_reservation); 
             ps.executeUpdate();
             System.out.println("Ajout effectuée avec succès");
         } catch (SQLException ex) {
