@@ -2,11 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package deal.esprit.tests;
+package deal.esprit.test;
 
 import deal.esprit.dao.ClientDAO;
 import deal.esprit.entities.Client;
-
 /**
  *
  * @author Ssawssen

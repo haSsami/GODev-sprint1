@@ -10,8 +10,10 @@ package deal.esprit.dao;
  *
  * @author wassim
  */
+import java.sql.DriverManager;
 import deal.esprit.entities.Client;
 import deal.esprit.entities.Commande;
+import deal.esprit.entities.Produit;
 import deal.esprit.util.MyConnection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -84,15 +86,26 @@ public class CommandeDAO {
 
         String requete = "select * from commande";
         try {
-           Statement statement = MyConnection.getInstance()
-                   .createStatement();
+           Statement statement = MyConnection.getInstance().createStatement();
             ResultSet resultat = statement.executeQuery(requete);
 
             while(resultat.next()){
                 Commande commande=new Commande();
+                Produit p=new Produit();
+                Client c=new Client();
+                int id_p;
+                int id_c;
                 commande.setId_commande(resultat.getInt(1));
-                commande.client.setIdClient(resultat.getInt(2));
-                commande.setQte(resultat.getInt(3));
+                id_p=resultat.getInt(2);
+                p.setId_Produit(id_p);
+                commande.setProduit(p);
+                //commande.produit.setId_Produit(resultat.getInt(2));
+                 id_c=resultat.getInt(3);
+                 c.setIdClient(id_c);
+                 commande.setClient(c);
+//                commande.client.setIdClient(resultat.getInt(3));
+                commande.setQte(resultat.getInt(4));
+                commande.setDate_reservation(resultat.getDate(5));
                        
                 listecommandes.add(commande);
             }

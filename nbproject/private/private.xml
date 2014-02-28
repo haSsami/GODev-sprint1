@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/AccueilFrame.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/IModifDeal.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/AfficherReclamationTable.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/GenererStatistiques.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/util/MyConnectionWamp.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/GestionDeals.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/test/TestDealReserver.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/RepondreReclamation.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/AfficherReclamation.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/IFaireReclamation.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/ISuppDeal.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/test/TestClient.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/dao/CommandeDAO.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/ReserverDeal.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/IGestionDeal.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/IAddDeal.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/dao/ClientDAO.java</file>
+            <file>file:/C:/Users/wassim/Documents/NetBeansProjects/bestdeal/GODev-sprint1/src/deal/esprit/gui/CreerClient.java</file>
+        </group>
+    </open-files>
 </project-private>
