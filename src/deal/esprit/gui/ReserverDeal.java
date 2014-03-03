@@ -6,12 +6,16 @@
 
 package deal.esprit.gui;
 import deal.esprit.dao.CommandeDAO;
+import deal.esprit.dao.ProduitDAO;
 import deal.esprit.entities.Commande;
+import java.awt.Dimension;
+import java.awt.Frame;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
+
 
 /**
  *
@@ -25,21 +29,26 @@ public class ReserverDeal extends javax.swing.JFrame {
     
     
     public ReserverDeal() {
+        
         initComponents();
+        Commande_table();
     }
     public void Commande_table(){
     DefaultTableModel TC=(DefaultTableModel) Commande_T.getModel();
     List<Commande> commande=new ArrayList<>(); 
     CommandeDAO commandeDAO=new CommandeDAO();
     commande=commandeDAO.DisplayAllCommandes();
-    for (int i=0;i<commande.size();i++)
-    {
-        TC.addRow(new Object [] {
-            commande.get(i).getProduit().getId_Produit(),
+    ProduitDAO p=new ProduitDAO();
+    for (int i = 0; i < commande.size(); i++)
+    {   
+       TC.addRow(new Object[] {
+           p.ReadNameProduit(commande.get(i).getProduit().getId_Produit()),
             commande.get(i).getQte(),
-            commande.get(i).getDate_reservation(),
-            commande.get(i).getQte()*commande.get(i).getProduit().getPrix_solde()
-        });
+             commande.get(i).getDate_reservation(),
+             commande.get(i).getQte()* p.ReadPrixProduit(commande.get(i).getProduit().getId_Produit())});
+      
+        
+     
        
     }
     }
@@ -70,10 +79,7 @@ public class ReserverDeal extends javax.swing.JFrame {
 
         Commande_T.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Produit", "Qte", "Date", "Prix"
@@ -91,6 +97,11 @@ public class ReserverDeal extends javax.swing.JFrame {
 
         jToggleButton1.setText("Valider Commandes");
         jToggleButton1.setToolTipText("");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Modifier Commandes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -166,12 +177,27 @@ public class ReserverDeal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        //ModifierCommande.setVisible(True);
+     //   Frame[] frames = Frame.getFrames();
+       JFrame frame = new ModifierCommande();
+      
+    frame.pack();
+    frame.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+ JFrame frame = new SupprimerCommande();
+      
+    frame.pack();
+    frame.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+ JFrame frame = new ValiderCommande();
+      
+    frame.pack();
+    frame.setVisible(true);        
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,6 +230,7 @@ public class ReserverDeal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new ReserverDeal().setVisible(true);
+                
             }
         });
     }

@@ -37,6 +37,11 @@ public class Categorie {
     public void setNom_categorie(String nom_categorie) {
         this.nom_categorie = nom_categorie;
     }
+
+    @Override
+    public String toString() {
+        return "Categorie{" + "id_categorie=" + id_categorie + ", nom_categorie=" + nom_categorie + '}';
+    }
     
     
   

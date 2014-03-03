@@ -1,4 +1,4 @@
-/*
+           /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -25,7 +25,20 @@ import java.util.List;
 
 public class CommandeDAO {
     public void insertCommande(Commande c)
-    {
+    {  //Mettre a jour le Stock
+         String requete1;
+        requete1 = "update commande set quantite_stock=quantite_stock-? where id_produit=?";
+        try {
+            PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete1);
+            ps.setInt(1, c.qte);
+            ps.setInt(2,c.produit.getId_Produit());
+           
+            ps.executeUpdate();
+            System.out.println("Mise à jour effectuée avec succès");
+        } catch (SQLException ex) {
+            System.out.println("erreur lors de la mise à jour "+ex.getMessage());
+        };
+        //Ajouter la Commande
      String requete = "insert into commande (id_produit,id_client,qte,date_res) values (?,?,?,?)";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
@@ -39,24 +52,15 @@ public class CommandeDAO {
             System.out.println("erreur lors de l'insertion "+ex.getMessage());}   
     }
     //Mise a jour de la quantite de commande
-        public void updateCommande(Commande c) throws SQLException{
-        String req="select id_commande from commande where (id_client="+c.getClient().getIdClient()+" AND id_produit="+c.getProduit().getNom_produit()+");";
-        int id=0;
-        try {
+        public void updateCommande(Commande c,int qte) throws SQLException{
+
         
-         Statement statement = MyConnection.getInstance().createStatement();
-         ResultSet resultat = statement.executeQuery(req);
-         id=resultat.getInt(1);
-        }
-        catch (SQLException ex) {
-            System.out.println("erreur id "+ex.getMessage());
-        }
-        
-        String requete = "update commande set qte=? where id_commande=?";
+        String requete;
+        requete = "update commande set qte=? where id_commande=?";
         try {
             PreparedStatement ps = MyConnection.getInstance().prepareStatement(requete);
-            ps.setInt(1, c.qte);
-            ps.setInt(2,id);
+            ps.setInt(1, qte);
+            ps.setInt(2,c.getId_commande());
            
             ps.executeUpdate();
             System.out.println("Mise à jour effectuée avec succès");

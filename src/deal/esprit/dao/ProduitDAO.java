@@ -172,4 +172,50 @@ public class ProduitDAO {
         }
          return listeprod;
     }
+    public String ReadNameProduit(int id)
+    {
+        String nom_produit="";
+        try {
+            
+        
+            
+                Statement statement = MyConnection.getInstance().createStatement();
+             
+                                  String sql="select nom_produit from produit where id_produit="+id;
+                                  ResultSet rs=statement.executeQuery(sql);
+                                  
+                                  if(rs.next())
+                                  {
+                                      nom_produit=rs.getString(1);
+                                  }
+        } catch (SQLException ex) {
+            //Logger.getLogger(ProduitDAO.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        return nom_produit;
+    
+    }
+     public Float ReadPrixProduit(int id)
+    {
+        Float prix_produit = null;
+        try {
+            
+        
+            
+                Statement statement = MyConnection.getInstance().createStatement();
+             
+                                  String sql="select prix_solde from produit where id_produit="+id;
+                                  ResultSet rs=statement.executeQuery(sql);
+                                  
+                                  if(rs.next())
+                                  {
+                                      prix_produit=rs.getFloat(1);
+                                  }
+        } catch (SQLException ex) {
+            //Logger.getLogger(ProduitDAO.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }
+        return prix_produit;
+    
+    }
 }
